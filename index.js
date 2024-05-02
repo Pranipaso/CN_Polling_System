@@ -4,10 +4,11 @@ import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 import router from "./routes/index.js";
 import { connectWithDb } from "./config/db.js";
-
+import cors from "cors";
 dotenv.config();
 const { PORT } = process.env;
 const app = express();
+app.use(cors);
 
 // for swagger documentation
 const swaggerDocument = YAML.load("./swagger.yaml");

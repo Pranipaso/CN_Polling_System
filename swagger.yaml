@@ -1,27 +1,25 @@
 openapi: 3.0.0
-info: 
+info:
   title: Polling System API
   description: an open api for polling system - rahul4019
   version: 1.0.0
 
 servers:
-  - url: https://polling-system-api.onrender.com/
+  - url: https://cn-polling-system.onrender.com
     description: live url hosted on render
-  
-
 
 paths:
   /:
     get:
-      tags: 
+      tags:
         - Home
       summary: returns a greet message from polling system api
-      responses: 
-        200: # status code       
+      responses:
+        200: # status code
           description: All good success
           content:
             application/json:
-              schema: 
+              schema:
                 type: string
                 example: "mystring"
 
@@ -30,34 +28,34 @@ paths:
       tags:
         - Question
       summary: creates question. required file is - title
-      requestBody: 
+      requestBody:
         required: true
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
-              required: 
+              required:
                 - title
               properties:
                 title:
                   type: string
-                  required: true            
-      responses: 
-        200:      
+                  required: true
+      responses:
+        200:
           description: All good success
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
-                properties: 
+                properties:
                   success:
                     type: boolean
                   question:
                     type: object
                     properties:
-                      title: 
+                      title:
                         type: string
-                      options: 
+                      options:
                         schema:
                           type: array
                         items:
@@ -66,13 +64,13 @@ paths:
                         type: number
                       _id:
                         type: string
-                      createdAt: 
+                      createdAt:
                         type: string
-                      updatedAt: 
+                      updatedAt:
                         type: string
         400:
           description: Bad request
-        500: 
+        500:
           description: internal server error
 
   /questions/{id}/options/create:
@@ -86,41 +84,41 @@ paths:
           required: true
           schema:
             type: string
-      requestBody: 
+      requestBody:
         required: true
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
-              required: 
+              required:
                 - text
               properties:
                 text:
                   type: string
-                  required: true            
-      responses: 
-        200:      
+                  required: true
+      responses:
+        200:
           description: All good success
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
-                properties: 
+                properties:
                   success:
                     type: boolean
                   option:
                     type: object
                     properties:
-                      text: 
+                      text:
                         type: string
-                      votes: 
+                      votes:
                         type: number
                       question:
                         type: object
                         properties:
-                          title: 
+                          title:
                             type: string
-                          options: 
+                          options:
                             schema:
                               type: array
                             items:
@@ -129,21 +127,21 @@ paths:
                             type: number
                           _id:
                             type: string
-                          createdAt: 
+                          createdAt:
                             type: string
-                          updatedAt: 
+                          updatedAt:
                             type: string
                       _id:
                         type: string
-                      createdAt: 
+                      createdAt:
                         type: string
-                      updatedAt: 
+                      updatedAt:
                         type: string
                       link_to_vote:
-                        type: string                     
+                        type: string
         400:
           description: Bad request
-        500: 
+        500:
           description: internal server error
 
   /questions/{id}/delete:
@@ -156,22 +154,22 @@ paths:
           in: path
           required: true
           schema:
-            type: string            
-      responses: 
-        200:      
+            type: string
+      responses:
+        200:
           description: All good success
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
-                properties: 
+                properties:
                   success:
                     type: boolean
                   message:
-                    type: string                      
+                    type: string
         400:
           description: Bad request
-        500: 
+        500:
           description: internal server error
 
   /options/{id}/delete:
@@ -184,24 +182,24 @@ paths:
           in: path
           required: true
           schema:
-            type: string            
-      responses: 
-        200:      
+            type: string
+      responses:
+        200:
           description: All good success
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
-                properties: 
+                properties:
                   success:
                     type: boolean
                   message:
-                    type: string                      
+                    type: string
         400:
           description: Bad request
-        500: 
+        500:
           description: internal server error
-                    
+
   /options/{id}/add_vote:
     put:
       tags:
@@ -212,95 +210,94 @@ paths:
           in: path
           required: true
           schema:
-            type: string            
-      responses: 
-        200:      
+            type: string
+      responses:
+        200:
           description: All good success
           content:
             application/json:
-              schema: 
+              schema:
                 type: object
-                properties: 
+                properties:
                   success:
                     type: boolean
                   option:
                     type: object
                     properties:
-                      text: 
+                      text:
                         type: string
-                      votes: 
+                      votes:
                         type: number
                       question:
                         type: string
                       _id:
                         type: string
-                      createdAt: 
+                      createdAt:
                         type: string
-                      updatedAt: 
+                      updatedAt:
                         type: string
                       link_to_vote:
-                        type: string                     
+                        type: string
         400:
           description: Bad request
-        500: 
+        500:
           description: internal server error
-                  
+
   /questions/{id}:
     get:
-        tags:
-          - Question
-        summary: returns a question with its options. 
-        parameters:
+      tags:
+        - Question
+      summary: returns a question with its options.
+      parameters:
         - name: id
           in: path
           required: true
           schema:
-            type: string            
-        responses: 
-          200:      
-            description: All good success
-            content:
-              application/json:
-                schema: 
-                  type: object
-                  properties: 
-                    success:
-                      type: boolean
-                    question:
-                      type: object
-                      properties:
-                        _id: 
-                          type: string
-                        title:
-                          type: text
-                        options: 
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              _id:
-                                type: string
-                              text: 
-                                type: string
-                              votes:
-                                type: number
-                              question:
-                                type: string
-                              createdAt:
-                                type: string
-                              updatedAt:
-                                type: string
-                              link_to_vote:
-                                type: string
-                    totalVotes:
-                      type: number
-                    createdAt:
-                      type: string
-                    updatedAt:
-                      type: string  
+            type: string
+      responses:
+        200:
+          description: All good success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  question:
+                    type: object
+                    properties:
+                      _id:
+                        type: string
+                      title:
+                        type: text
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            _id:
+                              type: string
+                            text:
+                              type: string
+                            votes:
+                              type: number
+                            question:
+                              type: string
+                            createdAt:
+                              type: string
+                            updatedAt:
+                              type: string
+                            link_to_vote:
+                              type: string
+                  totalVotes:
+                    type: number
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
 
-          400:
-            description: Bad request
-          500: 
-            description: internal server error
-
+        400:
+          description: Bad request
+        500:
+          description: internal server error
