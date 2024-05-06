@@ -15,12 +15,14 @@ This is a backend api for creating questions and adding options to a specific qu
 
 - Clone this repository.
 - Run npm install to install all the dependencies.
-- Create an .env file in your project root folder and add your variables. See .env.sample for assistance.
+- Create an .env file in your project root folder and add PORT & MONGODB variables.
+- In the MONGODB please append the name of the Database as well example: mongodb://127.0.0.1:27017/Polling_System
 
 ## Usage
 
-- Run npm start to start the application.
-- Connect to the API using Postman on port 8000.
+- Run npm start to start the server of the application.
+- Connect to the API using Postman on port 3000.
+- postman collection has been provided in the helper folder
 
 ## API Endpoints
 

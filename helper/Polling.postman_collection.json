@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "5c7f85b7-ecfc-40da-8f44-f4a7714f6207",
+		"name": "Polling",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34288209"
+	},
+	"item": [
+		{
+			"name": "Greeting",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createOptions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\":\"option 2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/questions/:id/options/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"questions",
+						":id",
+						"options",
+						"create"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "66389535ac1ddf7deeda773d",
+							"description": "Question ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createQuestion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Question 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/questions/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"questions",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOption",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Question 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/options/:id/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"options",
+						":id",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "663895a1ac1ddf7deeda7740",
+							"description": "Option ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteQuestion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Question 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/questions/:id/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"questions",
+						":id",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "66389654ac1ddf7deeda774e",
+							"description": "Question ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "viewQuestion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Question 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/questions/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"questions",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "66389381ac1ddf7deeda7730",
+							"description": "Question ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddVote",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/options/:id/add_vote",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"options",
+						":id",
+						"add_vote"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "663896f1ac1ddf7deeda7756",
+							"description": "Option ID"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
